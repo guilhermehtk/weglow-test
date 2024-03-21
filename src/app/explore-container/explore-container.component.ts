@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-explore-container',
@@ -6,7 +8,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./explore-container.component.scss'],
 })
 export class ExploreContainerComponent {
+  loading: boolean = false;
 
-  @Input() name?: string;
+  constructor(private router: Router) {}
 
+  showVersions(): void {
+    this.router.navigate(['/versions']);
+  }
 }
